@@ -8,7 +8,7 @@ Item {
     //1
     Text{
         id:x1
-        //opacity: 0.0
+        opacity: 0.0
         Behavior on opacity{NumberAnimation{duration:500}}
         text:'<b>Elemento QML</b><br><b>2Rectangle{}</b>'
         anchors.centerIn: r 
@@ -22,7 +22,7 @@ Item {
         repeat: true
         interval: 250
         onTriggered: {
-            x1.opacity=app.p(0, 6)?1.0:0.0
+            x1.opacity=app.p(0, 800)?1.0:0.0
         }
     }
     function e(n){
