@@ -10,7 +10,7 @@ Item {
         id:x1
         //opacity: 0.0
         Behavior on opacity{NumberAnimation{duration:500}}
-        text:'<b>Elemento QML</b><br><b>Rectangle{}</b>'
+        text:'<b>Elemento QML</b><br><b>2Rectangle{}</b>'
         anchors.centerIn: r 
         font.pixelSize: app.fs*2
         color: app.c2
