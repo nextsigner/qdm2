@@ -33,7 +33,7 @@ Item {
         return sp
     }
     Component.onCompleted: {
-        controles.asec=[0,10,31]
+        //controles.asec=[0,10,31]
         var at=''
         //Pr
         at+='Elemento Rectangle'
