@@ -56,10 +56,38 @@ Item {
         }
         Text{
             id:txt1
-            text:'Rectangle{\n       widht:100\n       heigth:100\n       color:"red"\n       radius:8\n       border.color:"yellow"\n       border.width:8\n}'
+            text:'Rectangle{\n       widht:'+parseInt(rect1.width)+'\n       heigth:'+parseInt(rect1.height)
             font.pixelSize: app.fs
             color: app.c2
-            Behavior on opacity{NumberAnimation{duration:1500}}
+        }
+        Text{
+            text:'       color:"'+rect1.color+'"'
+            font.pixelSize: app.fs
+            color: app.c2
+            Marco{id:mr1;padding:app.fs*0.1}
+        }
+        Text{
+            text:'       radius:'+parseInt(rect1.radius)
+            font.pixelSize: app.fs
+            color: app.c2
+            Marco{id:mr2;padding:app.fs*0.1}
+        }
+        Text{
+            text:'       border.color:"'+rect1.border.color+'"'
+            font.pixelSize: app.fs
+            color: app.c2
+            Marco{id:mr3;padding:app.fs*0.1}
+        }
+        Text{
+            text:'       border.width:'+parseInt(rect1.border.width)+'"'
+            font.pixelSize: app.fs
+            color: app.c2
+            Marco{id:mr4;padding:app.fs*0.1}
+        }
+        Text{
+            text:'}'
+            font.pixelSize: app.fs
+            color: app.c2
         }
     }
         Xv{
@@ -71,15 +99,18 @@ Item {
             anchors.verticalCenter: parent.verticalCenter
             Rectangle{
                 id:rect1
-                width: app.fs*3.5
-                height: app.fs*3
+                width: app.fs*6
+                height: app.fs*5
                 x:parseInt(app.fs)
                 y: parseInt(app.fs)+xV4.tvh
                 radius: rad
                 color: 'red'
                 border.color: 'yellow'
-                border.width: 4
+                border.width: bor
                 property int rad: 8
+                property int bor: 4
+                Behavior on rad{NumberAnimation{duration:1500}}
+                Behavior on bor{NumberAnimation{duration:1500}}
             }
         }
     }
@@ -205,6 +236,38 @@ Item {
             x2.opacity=app.p(6, 800)?1.0:0.0
             mm1.opacity=app.p(11.5, 15)?1.0:0.0
             mm2.opacity=app.p(15, 22)?1.0:0.0
+
+            if(app.p(40, 42)){
+                mr1.opacity=1.0
+                mr2.opacity=0.0
+                mr3.opacity=0.0
+                mr4.opacity=0.0
+            }else if(app.p(42, 45)){
+                mr1.opacity=0.0
+                mr2.opacity=1.0
+                mr3.opacity=0.0
+                mr4.opacity=0.0
+            }else if(app.p(45, 48)){
+                mr1.opacity=0.0
+                mr2.opacity=0.0
+                mr3.opacity=1.0
+                mr4.opacity=1.0
+            }else{
+                mr1.opacity=0.0
+                mr2.opacity=0.0
+                mr3.opacity=0.0
+                mr4.opacity=0.0
+            }
+
+            if(app.p(15, 17)){
+                rect1.rad=20
+            }else if(app.p(17, 20)){
+                rect1.bor=8
+            }else{
+                rect1.rad=8
+                rect1.bor=4
+            }
+
         }
     }
     function e(n){
@@ -215,7 +278,7 @@ Item {
         return sp
     }
     Component.onCompleted: {
-        //controles.asec=[0,10,31]
+        controles.asec=[0,10,31]
         var at=''
         //Pr
         at+='Elemento Rectangle'
