@@ -11,7 +11,7 @@ Item {
         opacity: 0.0
         Behavior on opacity{NumberAnimation{duration:500}}
         text:'<b>Elemento QML</b><br><b>Rectangle{}</b>'
-        anchors.centerIn: r 
+        anchors.centerIn: r
         font.pixelSize: app.fs*2
         color: app.c2
         horizontalAlignment: Text.AlignHCenter
@@ -26,126 +26,126 @@ Item {
         opacity: 0.0
         spacing: app.fs
         Behavior on opacity{NumberAnimation{duration:500}}
-       Column{
-           spacing: app.fs*0.2
-        Text{
-            text:'<b>Còdigo QML - Elemento Rectangle</b>'
-            font.pixelSize: app.fs
-            color: app.c2
-        }
-        Row{
-            spacing: app.fs*0.5
+        Column{
+            spacing: app.fs*0.2
             Text{
-                text:'import'
+                text:'<b>Còdigo QML - Elemento Rectangle</b>'
+                font.pixelSize: app.fs
+                color: app.c2
+            }
+            Row{
+                spacing: app.fs*0.5
+                Text{
+                    text:'import'
+                    font.pixelSize: app.fs
+                    color: app.c2
+                }
+                Text{
+                    text:'QtQuick'
+                    font.pixelSize: app.fs
+                    color: app.c2
+                    Marco{id:mm1;padding:app.fs*0.1}
+                }
+                Text{
+                    id:txtVer
+                    text:'2.0'
+                    font.pixelSize: app.fs
+                    color: app.c2
+                    Marco{id:mm2;padding:app.fs*0.1}
+                }
+            }
+            Text{
+                id:txt1
+                text:'Rectangle{\n       widht:'+parseInt(rect1.width)+'\n       heigth:'+parseInt(rect1.height)
                 font.pixelSize: app.fs
                 color: app.c2
             }
             Text{
-                text:'QtQuick'
+                text:'       color:"'+rect1.color+'"'
                 font.pixelSize: app.fs
                 color: app.c2
-                Marco{id:mm1;padding:app.fs*0.1}
+                Marco{id:mr1;padding:app.fs*0.1}
+                Marco{
+                    id:me1;padding:app.fs*0.1
+                    opacity:0.0
+                    Behavior on opacity{NumberAnimation{duration:500}}
+                    Text{
+                        text:'STRING\nCadena de Texto'
+                        font.pixelSize: app.fs*0.5
+                        color: app.c2
+                        horizontalAlignment: Text.AlignHCenter
+                        anchors.left: parent.right
+                        anchors.leftMargin: app.fs*0.5
+                        anchors.verticalCenter: parent.verticalCenter
+                    }
+                }
             }
             Text{
-                id:txtVer
-                text:'2.0'
+                text:'       radius:'+parseInt(rect1.radius)
                 font.pixelSize: app.fs
                 color: app.c2
-                Marco{id:mm2;padding:app.fs*0.1}
-            }
-        }
-        Text{
-            id:txt1
-            text:'Rectangle{\n       widht:'+parseInt(rect1.width)+'\n       heigth:'+parseInt(rect1.height)
-            font.pixelSize: app.fs
-            color: app.c2
-        }
-        Text{
-            text:'       color:"'+rect1.color+'"'
-            font.pixelSize: app.fs
-            color: app.c2
-            Marco{id:mr1;padding:app.fs*0.1}
-             Marco{
-                 id:me1;padding:app.fs*0.1
-                 opacity:0.0
-                 Behavior on opacity{NumberAnimation{duration:500}}
-                 Text{
-                     text:'STRING\nCadena de Texto'
-                     font.pixelSize: app.fs*0.5
-                     color: app.c2
-                     horizontalAlignment: Text.AlignHCenter
-                    anchors.left: parent.right
-                    anchors.leftMargin: app.fs*0.5
-                    anchors.verticalCenter: parent.verticalCenter
-                 }
-             }
-        }
-        Text{
-            text:'       radius:'+parseInt(rect1.radius)
-            font.pixelSize: app.fs
-            color: app.c2
-            Marco{id:mr2;padding:app.fs*0.1}
-            Marco{
-                id:me2;padding:app.fs*0.1
-                opacity:0.0
-                Behavior on opacity{NumberAnimation{duration:500}}
-                Text{
-                    text:'NUMERO\nENTERO'
-                    font.pixelSize: app.fs*0.5
-                    color: app.c2
-                    horizontalAlignment: Text.AlignHCenter
-                   anchors.left: parent.right
-                   anchors.leftMargin: app.fs*0.5
-                   anchors.verticalCenter: parent.verticalCenter
+                Marco{id:mr2;padding:app.fs*0.1}
+                Marco{
+                    id:me2;padding:app.fs*0.1
+                    opacity:0.0
+                    Behavior on opacity{NumberAnimation{duration:500}}
+                    Text{
+                        text:'NUMERO\nENTERO'
+                        font.pixelSize: app.fs*0.5
+                        color: app.c2
+                        horizontalAlignment: Text.AlignHCenter
+                        anchors.left: parent.right
+                        anchors.leftMargin: app.fs*0.5
+                        anchors.verticalCenter: parent.verticalCenter
+                    }
                 }
             }
-        }
-        Text{
-            text:'       border.color:"'+rect1.border.color+'"'
-            font.pixelSize: app.fs
-            color: app.c2
-            Marco{id:mr3;padding:app.fs*0.1}
-            Marco{
-                id:me3;padding:app.fs*0.1
-                opacity:0.0
-                Behavior on opacity{NumberAnimation{duration:500}}
-                Text{
-                    text:'STRING\nCadena de Texto'
-                    font.pixelSize: app.fs*0.5
-                    color: app.c2
-                    horizontalAlignment: Text.AlignHCenter
-                   anchors.left: parent.right
-                   anchors.leftMargin: app.fs*0.5
-                   anchors.verticalCenter: parent.verticalCenter
+            Text{
+                text:'       border.color:"'+rect1.border.color+'"'
+                font.pixelSize: app.fs
+                color: app.c2
+                Marco{id:mr3;padding:app.fs*0.1}
+                Marco{
+                    id:me3;padding:app.fs*0.1
+                    opacity:0.0
+                    Behavior on opacity{NumberAnimation{duration:500}}
+                    Text{
+                        text:'STRING\nCadena de Texto'
+                        font.pixelSize: app.fs*0.5
+                        color: app.c2
+                        horizontalAlignment: Text.AlignHCenter
+                        anchors.left: parent.right
+                        anchors.leftMargin: app.fs*0.5
+                        anchors.verticalCenter: parent.verticalCenter
+                    }
                 }
             }
-        }
-        Text{
-            text:'       border.width:'+parseInt(rect1.border.width)+'"'
-            font.pixelSize: app.fs
-            color: app.c2
-            Marco{id:mr4;padding:app.fs*0.1}
-            Marco{
-                id:me4;padding:app.fs*0.1
-                opacity:0.0
-                Behavior on opacity{NumberAnimation{duration:500}}
-                Text{
-                    text:'NUMERO\nENTERO'
-                    font.pixelSize: app.fs*0.5
-                    color: app.c2
-                    horizontalAlignment: Text.AlignHCenter
-                   anchors.left: parent.right
-                   anchors.leftMargin: app.fs*0.5
-                   anchors.verticalCenter: parent.verticalCenter
+            Text{
+                text:'       border.width:'+parseInt(rect1.border.width)
+                font.pixelSize: app.fs
+                color: app.c2
+                Marco{id:mr4;padding:app.fs*0.1}
+                Marco{
+                    id:me4;padding:app.fs*0.1
+                    opacity:0.0
+                    Behavior on opacity{NumberAnimation{duration:500}}
+                    Text{
+                        text:'NUMERO\nENTERO'
+                        font.pixelSize: app.fs*0.5
+                        color: app.c2
+                        horizontalAlignment: Text.AlignHCenter
+                        anchors.left: parent.right
+                        anchors.leftMargin: app.fs*0.5
+                        anchors.verticalCenter: parent.verticalCenter
+                    }
                 }
             }
+            Text{
+                text:'}'
+                font.pixelSize: app.fs
+                color: app.c2
+            }
         }
-        Text{
-            text:'}'
-            font.pixelSize: app.fs
-            color: app.c2
-        }
-    }
         Xv{
             id:xV4
             tvh:app.fs
@@ -267,117 +267,337 @@ Item {
                         anchors.right: parent.left
                     }
                 }
+
+                Loader{//Carga Componente de id item
+                    id:loaderAn
+                    objectName:  'Item 0'
+                    sourceComponent: item
+                    width: parent.width
+                    height: parent.height
+                    Behavior on opacity{NumberAnimation{duration:500}}
+                    property bool animar: false
+                    property bool estilo: false
+                }
             }
         }
     }
 
 
-    Component{
-        id:item
-        Rectangle{
-            id:xItem
-            border.width: 1
-            border.color: app.c2
-            color: 'transparent'
-            property string t: 'Item'
-            Rectangle{
-                width: parent.width*0.35
-                height: width
-                radius: width*0.5
-                color: 'red'
-                border.width: app.fs*0.1
-                border.color: app.c2
-                anchors.centerIn: parent
-                anchors.horizontalCenterOffset: app.fs*2
-                Text {
-                    text: 'Objeto de\nEjemplo '
-                    font.pixelSize: app.fs*0.3
-                    color: app.c2
-                    anchors.centerIn: parent
-                    horizontalAlignment: Text.AlignHCenter
+    //3
+    Row{
+        id:x3
+        anchors.centerIn: r
+        opacity:0.0
+        spacing:app.fs
+        property int fsh: r.height*0.045
+        Behavior on opacity{NumberAnimation{duration:500}}
+        Column{
+            spacing: x3.fsh*0.15
+            Text{
+                text:'<b>Còdigo QML - Elemento Rectangle</b>'
+                font.pixelSize: x3.fsh
+                color: app.c2
+            }
+            Text{
+                text:'import QtQuick 2.0'
+                font.pixelSize: x3.fsh
+                color: app.c2
+            }
+            Text{
+                text:'Rectangle{'
+                font.pixelSize: x3.fsh
+                color: app.c2
+            }
+            Item{
+                width: colTextos100.width
+                height: colTextos100.height
+                Marco{
+                    padding:app.fs*0.5
+                    Text{
+                        text:'Propiedades\nHeredadas\ndel\nElemento Item{}'
+                        font.pixelSize: x3.fsh*0.65
+                        color: app.c2
+                        anchors.verticalCenter: parent.verticalCenter
+                        anchors.left: parent.right
+                        anchors.leftMargin:app.fs
+                        horizontalAlignment: Text.AlignHCenter
+                        Marco{padding:app.fs*0.25}
+                        Rectangle{
+                            width: app.fs
+                            height: app.fs*0.1
+                            color:app.c2
+                            anchors.verticalCenter: parent.verticalCenter
+                            anchors.right: parent.left
+                        }
+                    }
+                }
+                Column{
+                    id:colTextos100
+                    spacing: x3.fsh*0.15
+                    Text{
+                        text:'       x:'+parseInt(rect2.x)+'\n       y:'+parseInt(rect2.y)
+                        font.pixelSize: x3.fsh
+                        color: app.c2
+                    }
+                    Text{
+                        text:'       widht:'+parseInt(rect2.width)+'\n       heigth:'+parseInt(rect2.height)
+                        font.pixelSize: x3.fsh
+                        color: app.c2
+                    }
+                    Text{
+                        text:'       opacity:'+parseInt(rect2.opacity)+'\n       visible:'+rect2.visible+'    '
+                        font.pixelSize: x3.fsh
+                        color: app.c2
+                    }
                 }
             }
-            Rectangle{
-                width: parent.width*0.25
-                height: width
-                radius: width*0.5
-                color: 'blue'
-                border.width: app.fs*0.1
-                border.color: app.c2
-                anchors.centerIn: parent
-                anchors.horizontalCenterOffset: 0-app.fs
-                Text {
-                    text: 'Objeto de\nEjemplo '
-                    font.pixelSize: app.fs*0.3
-                    color: app.c2
-                    anchors.centerIn: parent
-                    horizontalAlignment: Text.AlignHCenter
-                }
+            Text{
+                text:'       color:"'+rect1.color+'"'
+                font.pixelSize: x3.fsh
+                color: app.c2
             }
-            Timer{
-                running: x3.opacity===1.0 || x5.opacity===1.0
-                repeat: true
-                interval: x3.opacity===1.0?1000:500
-                property bool vi: true
-                onTriggered: {
-                    if(x3.opacity===1.0){
-                        xItem.border.width=xItem.border.width===1?0:1
-                    }else{
-                        if(item3.demo===0){
-                            vi=true
-                            interval=500
-                            if(item3.x<app.fs*3){
-                                item3.x=app.fs*3
-                            }else{
-                                item3.x=app.fs
-                            }
-                            if(item3.y<app.fs*3){
-                                item3.y=app.fs*3
-                            }else{
-                                item3.y=app.fs
-                            }
-                        }
-                        if(item3.demo===1){
-                            vi=true
-                            interval=500
-                            item3.x=app.fs
-                            item3.y=app.fs
-                            if(item3.width<app.fs*7){
-                                item3.width=app.fs*7
-                            }else{
-                                item3.width=app.fs*5.5
-                            }
-                            if(item3.height<app.fs*5){
-                                item3.height=app.fs*5
-                            }else{
-                                item3.height=app.fs*3.5
-                            }
-                        }
-                        if(item3.demo===2){
-                            vi=!vi
-                            interval=1000
-                            if(vi){
-                                item3.visible=false
-                            }else{
-                                item3.visible=true
-                            }
-                        }
+            Text{
+                text:'       radius:'+parseInt(rect1.radius)
+                font.pixelSize: x3.fsh
+                color: app.c2
+            }
+            Text{
+                text:'       border.color:"'+rect1.border.color+'"'
+                font.pixelSize: x3.fsh
+                color: app.c2
+            }
+            Text{
+                text:'       border.width:'+parseInt(rect1.border.width)
+                font.pixelSize: x3.fsh
+                color: app.c2
+            }
+            Text{
+                text:'}'
+                font.pixelSize: x3.fsh
+                color: app.c2
+            }
+        }
+
+        Xv{
+            id:v3
+            tvh:app.fs
+            width: app.fs*16
+            height: r.height-app.fs*8
+            clip:false
+           anchors.verticalCenter: parent.verticalCenter
+            Rectangle{
+                id:rect2
+                width: app.fs*6
+                height: app.fs*5
+                x:parseInt(app.fs)
+                y: parseInt(app.fs)+xV4.tvh
+                radius: app.fs*0.75
+                color: '#ff8833'
+                border.color: 'red'
+                border.width: app.fs*0.5
+                Marco{
+                    id:marcoItem; padding: 2
+                    Rectangle{
+                        width: app.fs
+                        height: 1
+                        color:app.c2
+                        anchors.verticalCenter: parent.verticalCenter
+                        anchors.left: parent.right
+                    }
+                    Text{
+                        text:'Elemento\nItem{}\nBase'
+                        font.pixelSize: app.fs*0.5
+                        color:app.c2
+                        horizontalAlignment: Text.AlignHCenter
+                        anchors.verticalCenter: parent.verticalCenter
+                        anchors.left: parent.right
+                        anchors.leftMargin: app.fs
+                        Marco{padding: app.fs*0.25}
                     }
 
                 }
-            }
-            Text {
-                x:app.fs*0.1
-                y:app.fs*0.1
-                text: '     '+parent.parent.objectName+'<br>    x='+parseInt(parent.parent.x)+' y='+parseInt(parent.parent.y)+' <br>    ancho='+parseInt(parent.width)+' alto='+parseInt(parent.height)
-                font.pixelSize: app.fs*0.3
-                color: 'red'
-                Rectangle{
-                    width: parent.width+app.fs*0.1
-                    height: parent.height+app.fs*0.1
-                    z:parent.z-1
+
+                Text{
+                    text:'Rectangle Herada\nde Item{}\nsus Propiedades\ny Mètodos'
+                    font.pixelSize: app.fs*0.35
+                    color:'white'
+                    horizontalAlignment: Text.AlignHCenter
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.left: parent.right
+                    anchors.leftMargin: app.fs
                     anchors.centerIn: parent
-                    radius: app.fs*0.1
+                }
+                /*Timer{
+                id:tColors
+                running: false
+                repeat: true
+                interval: 650
+                property int v: 0
+                onTriggered: {
+                    if(v<rect1.arrcolors.length-1){
+                        v++
+                    }else{
+                        v=0
+                    }
+                }
+            }
+
+            Timer{
+                id:tRad
+                running: false
+                repeat: true
+                interval: 1000
+                property int v: 0
+                onTriggered: {
+                    if(v<rect1.arrrads.length-1){
+                        v++
+                    }else{
+                        v=0
+                    }
+                }
+            }
+            Timer{
+                id:tBC
+                running: false
+                repeat: true
+                interval: 1000
+                property int v: 0
+                onTriggered: {
+                    if(v<rect1.arrbcs.length-1){
+                        v++
+                    }else{
+                        v=0
+                    }
+                }
+            }
+            Timer{
+                id:tBW
+                running: true
+                repeat: true
+                interval: 1000
+                property int v: 0
+                onTriggered: {
+                    if(v<rect1.arrbws.length-1){
+                        v++
+                    }else{
+                        v=0
+                    }
+                }
+            }
+
+            Text{
+                id:td1
+                text:'Color\nde\nFondo'
+                font.pixelSize: app.fs*0.6
+                color: 'black'
+                anchors.centerIn: parent
+                horizontalAlignment: Text.AlignHCenter
+            }
+            Text{
+                id:td2
+                text:'Esquinas\nRedondeadas'
+                font.pixelSize: app.fs*0.5
+                color: app.c2
+                anchors.left: parent.right
+                anchors.leftMargin: app.fs*0.5
+                Marco{padding:app.fs*0.2}
+                Rectangle{
+                    width: app.fs*0.5
+                    height: 1
+                    color:app.c2
+                    anchors.right: parent.left
+                }
+            }
+            Text{
+                id:td3
+                text:'Bordes'
+                font.pixelSize: app.fs*0.5
+                color: app.c2
+                anchors.left: parent.right
+                anchors.leftMargin: app.fs*0.5
+                anchors.verticalCenter: parent.verticalCenter
+                Marco{padding:app.fs*0.2}
+                Rectangle{
+                    width: app.fs*0.5
+                    height: 1
+                    color:app.c2
+                    anchors.right: parent.left
+                }
+            }
+            */
+            }
+        }
+
+    }
+
+
+
+    Component{
+        id:item
+        Item{
+            id:xItem
+            property string t: 'Item'
+            Grid{
+                anchors.centerIn: parent
+                spacing: app.fs*0.1
+                columns: 3
+                Repeater{
+                    model: ['#cc00ff', '#36ff88', '#ccff33', '#9900aa', '#0099ff', '#00ff55']
+                    Rectangle{
+                        id:rect100
+                        width: app.fs
+                        height: width
+                        color: modelData
+                        radius:xItem.parent.estilo?app.fs*0.2:0
+                        border.width:xItem.parent.estilo?app.fs*0.1:1
+                        border.color: app.c2
+                        SequentialAnimation{
+                            id:an100
+                            running: xItem.parent.animar
+                            loops: Animation.Infinite
+                            property bool rot: false
+                            onStopped: rot=!rot
+                            onRunningChanged: {
+                                if(!running){
+                                    rect100.rotation=0
+                                }
+                            }
+                            NumberAnimation {
+                                target: rect100
+                                property: "rotation"
+                                from: 0
+                                to: 160
+                                duration: 500
+                                easing.type: Easing.OutInQuad
+                            }
+                            NumberAnimation {
+                                target: rect100
+                                property: "rotation"
+                                from: 160
+                                to: 30
+                                duration: 1000
+                                easing.type: Easing.OutInQuad
+                            }
+                            NumberAnimation {
+                                target: rect100
+                                property: "rotation"
+                                from: 30
+                                to: 280
+                                duration: 300
+                                easing.type: Easing.OutInQuad
+                            }
+                        }
+                    }
+                }
+            }
+            Timer{
+                running: true
+                repeat: true
+                interval: 500
+                property bool vi: true
+                onTriggered: {
+
+
                 }
             }
         }
@@ -389,7 +609,7 @@ Item {
         interval: 250
         onTriggered: {
             x1.opacity=app.p(0, 6)?1.0:0.0
-            x2.opacity=app.p(6, 800)?1.0:0.0
+            x2.opacity=app.p(6, 187)?1.0:0.0
             mm1.opacity=app.p(11.5, 15)?1.0:0.0
             mm2.opacity=app.p(15, 22)?1.0:0.0
 
@@ -479,6 +699,14 @@ Item {
                 td2.opacity=0.0
                 td3.opacity=0.0
             }
+
+            //Comienzo a explicar sobre los elementos internos.
+            loaderAn.opacity=app.p(168, 187)?1.0:0.0
+            loaderAn.animar=app.p(173, 180)
+            loaderAn.estilo=app.p(180, 187)
+
+            x3.opacity=app.p(187, 800)?1.0:0.0
+
         }
     }
     function e(n){
@@ -489,7 +717,7 @@ Item {
         return sp
     }
     Component.onCompleted: {
-        controles.asec=[0,10,31,47,80,121.5, 129, 144]
+        controles.asec=[0,10,31,47,80,121.5, 129, 144, 168, 187]
         var at=''
         //Pr
         at+='Elemento Rectangle'
