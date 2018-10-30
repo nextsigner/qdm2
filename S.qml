@@ -65,24 +65,80 @@ Item {
             font.pixelSize: app.fs
             color: app.c2
             Marco{id:mr1;padding:app.fs*0.1}
+             Marco{
+                 id:me1;padding:app.fs*0.1
+                 opacity:0.0
+                 Behavior on opacity{NumberAnimation{duration:500}}
+                 Text{
+                     text:'STRING\nCadena de Texto'
+                     font.pixelSize: app.fs*0.5
+                     color: app.c2
+                     horizontalAlignment: Text.AlignHCenter
+                    anchors.left: parent.right
+                    anchors.leftMargin: app.fs*0.5
+                    anchors.verticalCenter: parent.verticalCenter
+                 }
+             }
         }
         Text{
             text:'       radius:'+parseInt(rect1.radius)
             font.pixelSize: app.fs
             color: app.c2
             Marco{id:mr2;padding:app.fs*0.1}
+            Marco{
+                id:me2;padding:app.fs*0.1
+                opacity:0.0
+                Behavior on opacity{NumberAnimation{duration:500}}
+                Text{
+                    text:'NUMERO\nENTERO'
+                    font.pixelSize: app.fs*0.5
+                    color: app.c2
+                    horizontalAlignment: Text.AlignHCenter
+                   anchors.left: parent.right
+                   anchors.leftMargin: app.fs*0.5
+                   anchors.verticalCenter: parent.verticalCenter
+                }
+            }
         }
         Text{
             text:'       border.color:"'+rect1.border.color+'"'
             font.pixelSize: app.fs
             color: app.c2
             Marco{id:mr3;padding:app.fs*0.1}
+            Marco{
+                id:me3;padding:app.fs*0.1
+                opacity:0.0
+                Behavior on opacity{NumberAnimation{duration:500}}
+                Text{
+                    text:'STRING\nCadena de Texto'
+                    font.pixelSize: app.fs*0.5
+                    color: app.c2
+                    horizontalAlignment: Text.AlignHCenter
+                   anchors.left: parent.right
+                   anchors.leftMargin: app.fs*0.5
+                   anchors.verticalCenter: parent.verticalCenter
+                }
+            }
         }
         Text{
             text:'       border.width:'+parseInt(rect1.border.width)+'"'
             font.pixelSize: app.fs
             color: app.c2
             Marco{id:mr4;padding:app.fs*0.1}
+            Marco{
+                id:me4;padding:app.fs*0.1
+                opacity:0.0
+                Behavior on opacity{NumberAnimation{duration:500}}
+                Text{
+                    text:'NUMERO\nENTERO'
+                    font.pixelSize: app.fs*0.5
+                    color: app.c2
+                    horizontalAlignment: Text.AlignHCenter
+                   anchors.left: parent.right
+                   anchors.leftMargin: app.fs*0.5
+                   anchors.verticalCenter: parent.verticalCenter
+                }
+            }
         }
         Text{
             text:'}'
@@ -103,14 +159,114 @@ Item {
                 height: app.fs*5
                 x:parseInt(app.fs)
                 y: parseInt(app.fs)+xV4.tvh
-                radius: rad
-                color: 'red'
-                border.color: 'yellow'
+                radius: tRad.running?arrrads[tRad.v]:app.fs*0.5
+                color: tColors.running?arrcolors[tColors.v]:'red'
+                border.color: tBC.running?arrbcs[tBC.v]:'yellow'
                 border.width: bor
                 property int rad: 8
-                property int bor: 4
-                Behavior on rad{NumberAnimation{duration:1500}}
-                Behavior on bor{NumberAnimation{duration:1500}}
+                property int bor: tBW.running?arrbws[tBW.v]:app.fs*0.2
+                property var arrcolors:['red', 'pink', '#ff8833', 'green', 'gray']
+                property var arrrads:[app.fs*0.5, app.fs*2, app.fs, app.fs*0.2, app.fs*1.5]
+                property var arrbcs:['pink', '#ff8833', 'green', 'blue', 'gray', 'brown', app.c2]
+                property var arrbws:[app.fs*0.1, app.fs*0.3, 1, app.fs*0.8, app.fs*0.5,app.fs*1.5]
+                Behavior on radius{NumberAnimation{duration:650}}
+                Behavior on bor{NumberAnimation{duration:500}}
+                Timer{
+                    id:tColors
+                    running: false
+                    repeat: true
+                    interval: 650
+                    property int v: 0
+                    onTriggered: {
+                        if(v<rect1.arrcolors.length-1){
+                            v++
+                        }else{
+                            v=0
+                        }
+                    }
+                }
+                Timer{
+                    id:tRad
+                    running: false
+                    repeat: true
+                    interval: 1000
+                    property int v: 0
+                    onTriggered: {
+                        if(v<rect1.arrrads.length-1){
+                            v++
+                        }else{
+                            v=0
+                        }
+                    }
+                }
+                Timer{
+                    id:tBC
+                    running: false
+                    repeat: true
+                    interval: 1000
+                    property int v: 0
+                    onTriggered: {
+                        if(v<rect1.arrbcs.length-1){
+                            v++
+                        }else{
+                            v=0
+                        }
+                    }
+                }
+                Timer{
+                    id:tBW
+                    running: true
+                    repeat: true
+                    interval: 1000
+                    property int v: 0
+                    onTriggered: {
+                        if(v<rect1.arrbws.length-1){
+                            v++
+                        }else{
+                            v=0
+                        }
+                    }
+                }
+
+                Text{
+                    id:td1
+                    text:'Color\nde\nFondo'
+                    font.pixelSize: app.fs*0.6
+                    color: 'black'
+                    anchors.centerIn: parent
+                    horizontalAlignment: Text.AlignHCenter
+                }
+                Text{
+                    id:td2
+                    text:'Esquinas\nRedondeadas'
+                    font.pixelSize: app.fs*0.5
+                    color: app.c2
+                    anchors.left: parent.right
+                    anchors.leftMargin: app.fs*0.5
+                    Marco{padding:app.fs*0.2}
+                    Rectangle{
+                        width: app.fs*0.5
+                        height: 1
+                        color:app.c2
+                        anchors.right: parent.left
+                    }
+                }
+                Text{
+                    id:td3
+                    text:'Bordes'
+                    font.pixelSize: app.fs*0.5
+                    color: app.c2
+                    anchors.left: parent.right
+                    anchors.leftMargin: app.fs*0.5
+                    anchors.verticalCenter: parent.verticalCenter
+                    Marco{padding:app.fs*0.2}
+                    Rectangle{
+                        width: app.fs*0.5
+                        height: 1
+                        color:app.c2
+                        anchors.right: parent.left
+                    }
+                }
             }
         }
     }
@@ -237,17 +393,17 @@ Item {
             mm1.opacity=app.p(11.5, 15)?1.0:0.0
             mm2.opacity=app.p(15, 22)?1.0:0.0
 
-            if(app.p(40, 42)){
+            if(app.p(39, 41)){
                 mr1.opacity=1.0
                 mr2.opacity=0.0
                 mr3.opacity=0.0
                 mr4.opacity=0.0
-            }else if(app.p(42, 45)){
+            }else if(app.p(41, 44)){
                 mr1.opacity=0.0
                 mr2.opacity=1.0
                 mr3.opacity=0.0
                 mr4.opacity=0.0
-            }else if(app.p(45, 48)){
+            }else if(app.p(44, 48)){
                 mr1.opacity=0.0
                 mr2.opacity=0.0
                 mr3.opacity=1.0
@@ -259,15 +415,70 @@ Item {
                 mr4.opacity=0.0
             }
 
-            if(app.p(15, 17)){
-                rect1.rad=20
-            }else if(app.p(17, 20)){
-                rect1.bor=8
+            if(app.p(48, 80)){
+                me1.opacity=1.0
+                me2.opacity=0.0
+                me3.opacity=0.0
+                me4.opacity=0.0
+                tColors.start()
+                tRad.stop()
+                tBC.stop()
+                tBW.stop()
+            }else if(app.p(80, 100)){
+                me1.opacity=0.0
+                me2.opacity=1.0
+                me3.opacity=0.0
+                me4.opacity=0.0
+                tColors.stop()
+                tRad.start()
+                tBC.stop()
+                tBW.stop()
+            }else if(app.p(120, 129)){
+                me1.opacity=0.0
+                me2.opacity=0.0
+                me3.opacity=1.0
+                me4.opacity=0.0
+                tColors.stop()
+                tRad.stop()
+                tBC.start()
+                tBW.stop()
+            }else if(app.p(129, 144)){
+                me1.opacity=0.0
+                me2.opacity=0.0
+                me3.opacity=0.0
+                me4.opacity=1.0
+                tColors.stop()
+                tRad.stop()
+                tBC.stop()
+                tBW.start()
             }else{
-                rect1.rad=8
-                rect1.bor=4
+                me1.opacity=0.0
+                me2.opacity=0.0
+                me3.opacity=0.0
+                me4.opacity=0.0
+                tColors.stop()
+                tRad.stop()
+                tBC.stop()
+                tBW.stop()
             }
 
+            if(app.p(158, 161)){
+                td1.opacity=1.0
+                td2.opacity=0.0
+                td3.opacity=0.0
+            }else if(app.p(161, 164)){
+                td1.opacity=1.0
+                td2.opacity=1.0
+                td3.opacity=0.0
+            }else if(app.p(164, 167)){
+                td1.opacity=1.0
+                td2.opacity=1.0
+                td3.opacity=1.0
+            }else{
+                td1.opacity=0.0
+                td2.opacity=0.0
+                td3.opacity=0.0
+            }
         }
     }
     function e(n){
@@ -278,7 +489,7 @@ Item {
         return sp
     }
     Component.onCompleted: {
-        controles.asec=[0,10,31]
+        controles.asec=[0,10,31,47,80,121.5, 129, 144]
         var at=''
         //Pr
         at+='Elemento Rectangle'
