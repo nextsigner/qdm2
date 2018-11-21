@@ -345,7 +345,7 @@ Item {
                         color: app.c2
                     }
                     Text{
-                        text:'       opacity:'+parseInt(rect2.opacity)+'\n       visible:'+rect2.visible+'    '
+                        text:'       opacity:'+parseFloat(rect2.opacity).toFixed(1)+'\n       visible:'+rect2.visible+'    '
                         font.pixelSize: x3.fsh
                         color: app.c2
                     }
@@ -395,6 +395,14 @@ Item {
                 color: '#ff8833'
                 border.color: 'red'
                 border.width: app.fs*0.5
+                property var arrdim: [app.fs*3, app.fs*2, app.fs*4.5]
+                property var arrpos: [app.fs*1, app.fs*3, app.fs*2]
+                property var arrops: [0.5, 1.0,0.1, 0.8]
+                Behavior on x{NumberAnimation{duration:500}}
+                Behavior on y{NumberAnimation{duration:500}}
+                Behavior on width{NumberAnimation{duration:500}}
+                Behavior on height{NumberAnimation{duration:500}}
+                Behavior on opacity{NumberAnimation{duration:500}}
                 Marco{
                     id:marcoItem; padding: 2
                     Rectangle{
@@ -418,6 +426,7 @@ Item {
                 }
 
                 Text{
+                    id:txtmi
                     text:'Rectangle Herada\nde Item{}\nsus Propiedades\ny Mètodos'
                     font.pixelSize: app.fs*0.35
                     color:'white'
@@ -427,104 +436,63 @@ Item {
                     anchors.leftMargin: app.fs
                     anchors.centerIn: parent
                 }
-                /*Timer{
-                id:tColors
-                running: false
-                repeat: true
-                interval: 650
-                property int v: 0
-                onTriggered: {
-                    if(v<rect1.arrcolors.length-1){
-                        v++
-                    }else{
-                        v=0
+                Timer{
+                    id:tDim
+                    running: false
+                    repeat: true
+                    interval: 1000
+                    property int v: 0
+                    onTriggered: {
+                        if(v<rect2.arrdim.length-1){
+                            v++
+                        }else{
+                            v=0
+                        }
+                        rect2.width=rect2.arrdim[v]
+                        rect2.height=rect2.arrdim[v]
                     }
                 }
-            }
-
-            Timer{
-                id:tRad
-                running: false
-                repeat: true
-                interval: 1000
-                property int v: 0
-                onTriggered: {
-                    if(v<rect1.arrrads.length-1){
-                        v++
-                    }else{
-                        v=0
+                Timer{
+                    id:tPos
+                    running: false
+                    repeat: true
+                    interval: 1000
+                    property int v: 0
+                    onTriggered: {
+                        if(v<rect2.arrpos.length-1){
+                            v++
+                        }else{
+                            v=0
+                        }
+                        rect2.x=rect2.arrpos[v]
+                        rect2.y=rect2.arrpos[v]
                     }
                 }
-            }
-            Timer{
-                id:tBC
-                running: false
-                repeat: true
-                interval: 1000
-                property int v: 0
-                onTriggered: {
-                    if(v<rect1.arrbcs.length-1){
-                        v++
-                    }else{
-                        v=0
+                Timer{
+                    id:tOp
+                    running: false
+                    repeat: true
+                    interval: 1555
+                    property int v: 0
+                    onTriggered: {
+                        if(v<rect2.arrops.length-1){
+                            v++
+                        }else{
+                            v=0
+                        }
+                        rect2.opacity=rect2.arrops[v]
                     }
                 }
-            }
-            Timer{
-                id:tBW
-                running: true
-                repeat: true
-                interval: 1000
-                property int v: 0
-                onTriggered: {
-                    if(v<rect1.arrbws.length-1){
-                        v++
-                    }else{
-                        v=0
+                Timer{
+                    id:tVis
+                    running: false
+                    repeat: true
+                    interval: 2155
+                    property int v: 0
+                    onTriggered: {
+                        rect2.visible=!rect2.visible
                     }
                 }
-            }
-
-            Text{
-                id:td1
-                text:'Color\nde\nFondo'
-                font.pixelSize: app.fs*0.6
-                color: 'black'
-                anchors.centerIn: parent
-                horizontalAlignment: Text.AlignHCenter
-            }
-            Text{
-                id:td2
-                text:'Esquinas\nRedondeadas'
-                font.pixelSize: app.fs*0.5
-                color: app.c2
-                anchors.left: parent.right
-                anchors.leftMargin: app.fs*0.5
-                Marco{padding:app.fs*0.2}
-                Rectangle{
-                    width: app.fs*0.5
-                    height: 1
-                    color:app.c2
-                    anchors.right: parent.left
-                }
-            }
-            Text{
-                id:td3
-                text:'Bordes'
-                font.pixelSize: app.fs*0.5
-                color: app.c2
-                anchors.left: parent.right
-                anchors.leftMargin: app.fs*0.5
-                anchors.verticalCenter: parent.verticalCenter
-                Marco{padding:app.fs*0.2}
-                Rectangle{
-                    width: app.fs*0.5
-                    height: 1
-                    color:app.c2
-                    anchors.right: parent.left
-                }
-            }
-            */
             }
         }
 
@@ -706,6 +674,12 @@ Item {
             loaderAn.estilo=app.p(180, 187)
 
             x3.opacity=app.p(187, 800)?1.0:0.0
+             tDim.running=app.p(251, 800)
+            tPos.running=app.p(251, 800)
+            tOp.running=app.p(251, 800)
+            tVis.running=app.p(251, 800)
+            marcoItem.visible=!app.p(251, 800)
+            txtmi.visible=!app.p(251, 800)
 
         }
     }
@@ -717,7 +691,7 @@ Item {
         return sp
     }
     Component.onCompleted: {
-        controles.asec=[0,10,31,47,80,121.5, 129, 144, 168, 187]
+        controles.asec=[0,10,31,47,80,121.5, 129, 144, 168, 187, 251]
         var at=''
         //Pr
         at+='Elemento Rectangle'
